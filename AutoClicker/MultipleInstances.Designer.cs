@@ -41,8 +41,7 @@
             this.lbl_info.Name = "lbl_info";
             this.lbl_info.Size = new System.Drawing.Size(337, 37);
             this.lbl_info.TabIndex = 1;
-            this.lbl_info.Text = "Multiple Minecraft instances found. Which ones would you like to run the auto-cli" +
-    "cker on?";
+            this.lbl_info.Text = "Multiple instances found. Which ones would you like to run the auto-clicker on?";
             // 
             // btn_ok
             // 

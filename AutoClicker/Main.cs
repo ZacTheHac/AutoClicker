@@ -19,11 +19,30 @@ namespace AutoClicker
 
         private void Btn_action_Click(object sender, EventArgs e)
         {
-            var mcProcesses = Process.GetProcessesByName("javaw").Where(b => b.MainWindowTitle.Contains("Minecraft")).ToList();
+            var mcProcesses = Process.GetProcessesByName("javaw").Where(b => b.MainWindowTitle.Contains("Minecraft")).ToList(); //this is left here to type the variable beforehand.
+            int delay;
+
+            if(this.txt_Process.Text == "")
+            {
+                MessageBox.Show(@"The process name isn't set! Resetting to default.", @"Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txt_Process.Text = "javaw";
+                return;
+            }else
+            {
+                if(this.txt_WindowName.Text != "")
+                {
+                    mcProcesses = Process.GetProcessesByName(this.txt_Process.Text).Where(b => b.MainWindowTitle.Contains(this.txt_WindowName.Text)).ToList();
+                }else
+                {
+                    mcProcesses = Process.GetProcessesByName(this.txt_Process.Text).ToList();
+                }
+            }
+
+
 
             var mainHandle = this.Handle;
 
-            if (!int.TryParse(this.txtDelay.Text, out int delay))
+            if (!int.TryParse(this.txtDelay.Text, out delay))
             {
                 MessageBox.Show(@"The delay must be an integer! Resetting to default.", @"Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.txtDelay.Text = @"300";
@@ -32,7 +51,14 @@ namespace AutoClicker
 
             if (!mcProcesses.Any())
             {
-                MessageBox.Show(@"Minecraft not running!", @"Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (this.txt_WindowName.Text == "")
+                {
+                    MessageBox.Show(this.txt_Process.Text + " is not running!", @"Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show(@"No process with that window name is running!", @"Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 return;
             }
 
@@ -76,7 +102,7 @@ namespace AutoClicker
 
             for (var i = 5; i > 0; i--)
             {
-                SetControlPropertyThreadSafe(this.btn_start, "Text", i.ToString());
+                SetControlPropertyThreadSafe(this.btn_start, "Text", "Starting in:\n" + i.ToString());
                 Thread.Sleep(500);
             }
 
