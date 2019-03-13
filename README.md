@@ -1,17 +1,21 @@
-Minecraft Auto Clicker
+#Auto Clicker
 
-* Be sure to go into options.txt in your .minecraft folder and set "pauseOnLostFocus" to "false"
-* Must be done with Minecraft closed
+*Enter the process name (Exe name without the *.exe)
+*Enter the window name to limit number of results (Partial Matching)
+*Once you click start, the program will bring focus to that window and count down from 5, giving you time to line up your action.
+*At the end of the countdown, the program will bring focus back to itself and begin clicking in the background
+*When you want to stop, click "Stop" and it will stop the action.
 
-To access your .minecraft folder, open explorer and paste this into the address bar:
-* %appdata%\\.minecraft
+The default values target Minecraft specifically
 
-Alternatively, you can also do F3 + P in game until it says "Pause on lost focus: disabled"
+***
 
-To Use:
+##Minecraft-Specific Instructions:
 
-Line yourself up for whatever action you want to take and then bring up the menu. Go into the application and click "Start".
 
-Once you click start, you will have 3 seconds to go into the game and exit the menu. When the countdown hits 0, the program will run and will auto tab you out of the game.
+Disable Pause on Lost Focus by pressing <kbd>F3 + P</kbd> in-game
 
-When you want to stop, click "Stop" and it will stop the action.
+Alternatively, with minecraft closed:
+* Access your .minecraft folder by opening explorer and paste this into the address bar: '%appdata%\\.minecraft'
+* Open options.txt and set "pauseOnLostFocus" to "false"
+* Save changes
