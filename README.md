@@ -19,3 +19,7 @@ Alternatively, with minecraft closed:
 * Access your .minecraft folder by opening explorer and paste this into the address bar: '%appdata%\\.minecraft'
 * Open options.txt and set "pauseOnLostFocus" to "false"
 * Save changes
+
+## Core Files:
+  * [Main.cs](https://github.com/ZacTheHac/AutoClicker/blob/master/AutoClicker/Main.cs) does all of the work. The rest is boilerplate stuff or special case items for say multiple instances.
+  * [AutoClicker.exe](https://github.com/ZacTheHac/AutoClicker/blob/master/AutoClicker.exe) is a precompiled version of the program. Works fine as a standalone with no installation.
